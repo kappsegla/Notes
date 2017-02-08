@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Notes</string>
+    <string name="title_activity_new_note">Note editor</string>
+    <string name="title_text_view">Title</string>
+    <string name="body_text_view">Text</string>
+    <string name="alert_exit_no_save">You have unsaved changes. Exit anyway?</string>
 </resources>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<data class="NewNoteBinding">
+    <variable
+        name="viewmodel"
+        type="snowroller.notes.ViewModels.NoteViewModel"/>
+</data>
+
+<android.support.design.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="snowroller.notes.NewNote">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:onClick="@{viewmodel.onFabClick}"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_menu_save" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:text="@string/title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:text="@string/body_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView2"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text="@={viewmodel.title}"
+            android:ems="10"
+            android:id="@+id/editText"
+            tools:text="Lorem ipsum title"
+            android:background="@android:color/transparent"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/editText3"
+            android:text="@={viewmodel.body}"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis bibendum convallis. Aliquam blandit aliquet metus, facilisis porta erat. Curabitur mollis lobortis condimentum. Donec dui velit, ullamcorper ac sem sed, blandit tempor dui. Nam posuere semper dolor sit amet finibus. Maecenas tristique vestibulum finibus. Suspendisse arcu tortor, pellentesque quis enim vitae, volutpat accumsan tortor. Duis id nunc ante. Mauris posuere gravida tortor, sit amet ultrices nisl vulputate id. Proin nec nisl nulla. Sed pulvinar risus at ullamcorper scelerisque. Suspendisse potenti."
+            android:gravity="top|left"
+            android:background="@android:color/transparent"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="16dp" />
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
+</layout>
