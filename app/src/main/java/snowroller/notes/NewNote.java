@@ -8,6 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import snowroller.notes.Models.NotesRepo;
 import snowroller.notes.ViewModels.NoteViewModel;
 import snowroller.notes.databinding.NewNoteBinding;
 
@@ -15,13 +16,14 @@ public class NewNote extends AppCompatActivity {
 
     private NoteViewModel viewmodel;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_new_note);
         NewNoteBinding binder = DataBindingUtil.setContentView(this,
                 R.layout.activity_new_note);
-        viewmodel = new NoteViewModel(savedInstanceState);
+        viewmodel = new NoteViewModel(savedInstanceState, new NotesRepo(this));
         binder.setViewmodel(viewmodel);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

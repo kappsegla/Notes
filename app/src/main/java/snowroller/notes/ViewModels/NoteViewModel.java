@@ -9,6 +9,9 @@ import android.view.View;
 
 import com.android.databinding.library.baseAdapters.BR;
 
+import snowroller.notes.Models.Note;
+import snowroller.notes.Models.NotesRepo;
+
 /**
  * Created by Martin on 2017-02-08.
  */
@@ -17,14 +20,20 @@ public class NoteViewModel extends BaseObservable {
 
     private String title;
     private String body;
-    private boolean changed;
+    private long id;
 
-    public NoteViewModel(Bundle savedInstanceState) {
+    private boolean changed;
+    private NotesRepo repo;
+
+    public NoteViewModel(Bundle savedInstanceState, NotesRepo repo) {
         changed = false;
+        this.repo = repo;
+        id = 0;
         if(savedInstanceState != null) {
             title = savedInstanceState.getString("title", "");
             body = savedInstanceState.getString("body", "");
             changed = savedInstanceState.getBoolean("changed", false);
+            id = savedInstanceState.getLong("id", 0);
         }
     }
 
@@ -57,10 +66,20 @@ public class NoteViewModel extends BaseObservable {
         outState.putString("title", title);
         outState.putString("body", body);
         outState.putBoolean("changed", changed);
+        outState.putLong("id", id);
     }
 
     public void onFabClick(View v){
-        Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
+
+        Note note = new Note();
+        note._id = this.id;
+        note.title = this.title;
+        note.body = this.body;
+
+        id = repo.insert(note);
+
+        Snackbar.make(v, "Saved, id: " + id, Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
+        changed = false;
     }
 }
