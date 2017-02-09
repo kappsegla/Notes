@@ -2,9 +2,13 @@ package snowroller.notes.Models;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Martin on 2017-02-09.
@@ -53,5 +57,29 @@ public class NotesRepo extends SQLiteOpenHelper {
         }
         notesdb.close();
         return note._id;
+    }
+
+    public List<Note> getNotes()
+    {
+        SQLiteDatabase notesdb = this.getReadableDatabase();
+        Cursor cursor = notesdb.rawQuery("SELECT * FROM Notes", null);
+        List<Note> list = new ArrayList<Note>();
+
+        int column_id = cursor.getColumnIndex("id");
+        int column_title = cursor.getColumnIndex("title");
+        int column_body = cursor.getColumnIndex("body");
+
+        while(cursor.moveToNext())
+        {
+            Note n = new Note();
+            n._id = cursor.getLong(column_id);
+            n.title = cursor.getString(column_title);
+            n.body = cursor.getString(column_body);
+
+            list.add(n);
+        }
+        cursor.close();
+        notesdb.close();
+        return list;
     }
 }
