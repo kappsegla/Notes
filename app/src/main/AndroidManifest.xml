@@ -11,7 +11,8 @@
         <activity
             android:name=".NewNote"
             android:label="@string/title_activity_new_note"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".NotesList" >>
         </activity>
         <activity
             android:name=".NotesList"
@@ -22,6 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:authorities="snowroller.notes.models.provider.NotesContentProvider"
+            android:name=".models.provider.NotesContentProvider"
+            android:enabled="true"
+            android:exported="false"/>
     </application>
 
 </manifest>

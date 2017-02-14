@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Notes</string>
-    <string name="title_activity_new_note">Note editor</string>
+    <string name="title_activity_new_note">New note</string>
+    <string name="title_activity_edit_note">Edit note</string>
     <string name="title_text_view">Title</string>
     <string name="body_text_view">Text</string>
     <string name="alert_exit_no_save">You have unsaved changes. Exit anyway?</string>
     <string name="title_activity_notes_list">Notes</string>
+    <string name="delete_button_x">X</string>
+    <string name="options_menu_delete">Delete</string>
 </resources>

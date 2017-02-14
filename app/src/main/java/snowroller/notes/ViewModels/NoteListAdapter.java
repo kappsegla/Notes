@@ -1,17 +1,16 @@
-package snowroller.notes.ViewModels;
+package snowroller.notes.viewmodels;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.databinding.ObservableArrayList;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
 
-import snowroller.notes.Models.Note;
+import snowroller.notes.NewNote;
+import snowroller.notes.models.Note;
 import snowroller.notes.databinding.ListItemBinding;
 
 /**
@@ -25,6 +24,20 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         public ViewHolder(View v) {
             super(v);
             binder = DataBindingUtil.bind(v);
+
+            final long id = this.getItemId();
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    /*
+                    NoteListAdapter.this.list.remove(ViewHolder.this.getAdapterPosition());
+                    NoteListAdapter.this.notifyItemRemoved(ViewHolder.this.getAdapterPosition());
+                    */
+                    Intent intent = new Intent(v.getContext(), NewNote.class);
+                    intent.putExtra("id", ViewHolder.this.getItemId());
+                    v.getContext().startActivity(intent);
+                }
+            });
         }
     }
 
@@ -32,6 +45,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
 
     public NoteListAdapter(List<Note> list) {
         this.list = list;
+        setHasStableIds(true);
     }
 
     @Override
@@ -52,4 +66,10 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
     public int getItemCount() {
         return list.size();
     }
+
+    @Override
+    public long getItemId(int position) {
+        return list.get(position)._id;
+    }
+
 }
