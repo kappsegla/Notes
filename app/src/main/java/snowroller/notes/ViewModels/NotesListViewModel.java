@@ -69,10 +69,10 @@ public class NotesListViewModel implements LoaderManager.LoaderCallbacks<Cursor>
     public static void bindList(RecyclerView view, NotesListViewModel viewmodel) {
         //view.setAdapter(new NoteListAdapter(list));
         SimpleCursorRecyclerAdapter adapter = new SimpleCursorRecyclerAdapter();
+        view.setAdapter(adapter);
         viewmodel.setAdapter(adapter);
         getActivity(view).getSupportLoaderManager()
                 .initLoader(1, null, viewmodel);
-        view.setAdapter(adapter);
     }
 
     @BindingAdapter("app:animduration")

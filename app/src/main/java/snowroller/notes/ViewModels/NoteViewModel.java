@@ -1,5 +1,6 @@
 package snowroller.notes.viewmodels;
 
+import android.content.Context;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.View;
 
 import com.android.databinding.library.baseAdapters.BR;
 
+import snowroller.notes.R;
 import snowroller.notes.models.Note;
 import snowroller.notes.models.NotesRepo;
 
@@ -26,10 +28,12 @@ public class NoteViewModel extends BaseObservable {
     private boolean editmode;
     private NotesRepo repo;
 
+    private Context context;
 
-    public NoteViewModel(Bundle savedInstanceState, NotesRepo repo) {
+    public NoteViewModel(Context context, Bundle savedInstanceState, NotesRepo repo) {
         changed = false;
         this.repo = repo;
+        this.context = context;
         id = 0;
         editmode = false;
         if(savedInstanceState != null) {
@@ -57,6 +61,15 @@ public class NoteViewModel extends BaseObservable {
                 this.setBody(note.body);
             changed = false;
         }
+    }
+
+    @Bindable
+    public String getToolbarTitle()
+    {
+        if( isEditmode())
+            return context.getResources().getString(R.string.title_activity_edit_note);
+        else
+            return context.getString(R.string.title_activity_new_note);
     }
 
     public boolean isEditmode() {

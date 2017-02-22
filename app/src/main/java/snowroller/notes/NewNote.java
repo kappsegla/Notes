@@ -25,7 +25,7 @@ public class NewNote extends AppCompatActivity {
 
         NewNoteBinding binder = DataBindingUtil.setContentView(this,
                 R.layout.activity_new_note);
-        viewmodel = new NoteViewModel(savedInstanceState, new NotesRepo(this));
+        viewmodel = new NoteViewModel(this, savedInstanceState, new NotesRepo(this));
 
         if (savedInstanceState == null) {
             //Fresh start
@@ -41,8 +41,8 @@ public class NewNote extends AppCompatActivity {
             //Just restart of activity
         }
 
-        if( viewmodel.isEditmode())
-            this.setTitle(R.string.title_activity_edit_note);
+        //if( viewmodel.isEditmode())
+        //    this.setTitle(R.string.title_activity_edit_note);
 
         binder.setViewmodel(viewmodel);
 
