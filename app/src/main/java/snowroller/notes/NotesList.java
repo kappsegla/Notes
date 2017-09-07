@@ -27,8 +27,10 @@ public class NotesList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityNotesListBinding binding = DataBindingUtil.setContentView(this,
+       ActivityNotesListBinding binding = DataBindingUtil.setContentView(this,
                 R.layout.activity_notes_list);
+
+
         viewmodel = new NotesListViewModel(this);
         binding.setViewmodel(viewmodel);
 
