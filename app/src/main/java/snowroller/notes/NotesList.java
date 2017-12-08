@@ -1,24 +1,18 @@
 package snowroller.notes;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
-import android.widget.Toast;
 
-import snowroller.notes.models.NotesRepo;
-import snowroller.notes.viewmodels.NotesListViewModel;
 import snowroller.notes.databinding.ActivityNotesListBinding;
+import snowroller.notes.viewmodels.NotesListViewModel;
 
 public class NotesList extends AppCompatActivity {
 
@@ -36,7 +30,7 @@ public class NotesList extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -48,6 +48,7 @@ public class NewNote extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_light);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
