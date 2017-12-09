@@ -3,7 +3,6 @@ package snowroller.notes;
 import android.content.DialogInterface;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -11,9 +10,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import snowroller.notes.databinding.NewNoteBinding;
 import snowroller.notes.models.NotesRepo;
 import snowroller.notes.viewmodels.NoteViewModel;
-import snowroller.notes.databinding.NewNoteBinding;
 
 public class NewNote extends AppCompatActivity {
 
@@ -46,7 +45,7 @@ public class NewNote extends AppCompatActivity {
 
         binder.setViewmodel(viewmodel);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_light);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -91,7 +90,6 @@ public class NewNote extends AppCompatActivity {
         switch (item.getItemId()) {
         // Respond to the action bar's Up/Home button
         case android.R.id.home:
-            //NavUtils.navigateUpFromSameTask(this);
             //return true;
             break;
         case R.id.menu_delete:
