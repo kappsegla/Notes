@@ -1,6 +1,5 @@
 package snowroller.notes;
 
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,12 +10,19 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import snowroller.notes.databinding.ActivityNotesListBinding;
 import snowroller.notes.viewmodels.NotesListViewModel;
 
 public class NotesList extends AppCompatActivity {
 
     private NotesListViewModel viewmodel;
+
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +41,17 @@ public class NotesList extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                testFirebaseAdd();
+                /*
                 Intent intent = new Intent(NotesList.this, NewNote.class);
                 NotesList.this.startActivity(intent);
+                */
             }
         });
+
+        //Firestore
+        db = FirebaseFirestore.getInstance();
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -64,5 +77,25 @@ public class NotesList extends AppCompatActivity {
             }
         });
         return true;
+    }
+
+    public void testFirebaseAdd()
+    {
+        // Create a new user with a first and last name
+        Map<String, Object> user = new HashMap<>();
+        Map<String, Object> name = new HashMap<>();
+        user.put("name", name);
+        name.put("first", "Ada");
+        name.put("last", "Lovelace");
+        user.put("born", 1815);
+
+        // Add a new document with a specified name
+        db.collection("users").document("User1")
+                .set(user)
+                .addOnSuccessListener( aVoid -> {});
+        //Add a new document with a generated Id
+        db.collection("users").add(user).addOnSuccessListener(documentReference -> {
+
+        });
     }
  }

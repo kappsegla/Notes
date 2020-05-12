@@ -73,7 +73,7 @@
             android:background="@android:color/transparent"
             android:gravity="top"
             android:inputType="textMultiLine|textAutoCorrect"
-            android:text="@={viewmodel.body}"
+            android:text="@={viewmodel.s}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

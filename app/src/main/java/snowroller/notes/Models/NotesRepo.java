@@ -10,9 +10,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.util.Log;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import snowroller.notes.models.provider.NotesContentProvider;
 
 /**

@@ -3,16 +3,10 @@ package snowroller.notes.viewmodels;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
-import android.database.ContentObserver;
 import android.database.Cursor;
 import android.databinding.BindingAdapter;
-import android.databinding.BindingMethod;
-import android.databinding.BindingMethods;
-import android.databinding.ObservableBoolean;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -82,8 +76,6 @@ public class NotesListViewModel implements LoaderManager.LoaderCallbacks<Cursor>
         itemAnimator.setRemoveDuration(duration);
         view.setItemAnimator(itemAnimator);
     }
-
-
 
     public void setAdapter(CursorRecyclerAdapter adapter) {
         this.adapter = adapter;
