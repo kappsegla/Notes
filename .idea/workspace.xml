@@ -11,37 +11,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5615d8e-ddb8-484c-a1e1-997ae77bc6a9" name="Default" comment="Updated code">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Store/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Store/ic_launcher_foreground.xml" afterDir="false" />
+    <list default="true" id="b5615d8e-ddb8-484c-a1e1-997ae77bc6a9" name="Default" comment="Updated code to API29">
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/snowroller/notes/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/snowroller/notes/ExampleInstrumentedTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/Models/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/Models/Note.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/Models/NotesRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/Models/NotesRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/Models/provider/NotesContentProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/Models/provider/NotesContentProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/NewNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/NewNote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/NotesList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/NotesList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/ViewModels/NoteListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/ViewModels/NoteListAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/ViewModels/NoteViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/ViewModels/NoteViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/ViewModels/NotesListViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/ViewModels/NotesListViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/viewmodels/CursorRecyclerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/viewmodels/CursorRecyclerAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/viewmodels/SimpleCursorRecyclerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/snowroller/notes/viewmodels/SimpleCursorRecyclerAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_note.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_note.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_notes_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_notes_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/options_menu_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/options_menu_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-en/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-en/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-sv-rSE/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-sv-rSE/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/snowroller/notes/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/snowroller/notes/ExampleUnitTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,8 +53,14 @@
     <property name="android.sdk.path" value="C:/Android/sdk" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Dependencies" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="PsdUISettings">
+    <option name="MODULE_TAB" value="Default Config" />
   </component>
   <component name="RecentsManager">
     <key name="android.template.packageName">
@@ -220,7 +197,14 @@
       <option name="presentableId" value="LOCAL−00001" />
       <updated>1589282258506</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Updated code to API29">
+      <created>1589379330042</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1589379330042</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,7 +225,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated code" />
+    <MESSAGE value="Updated code to API29" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated code to API29" />
   </component>
   <component name="WindowStateProjectService">
     <state x="421" y="0" width="1115" height="834" key="CommitChangelistDialog2" timestamp="1589282257695">
