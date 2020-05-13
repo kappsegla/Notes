@@ -1,8 +1,8 @@
 package snowroller.notes.viewmodels;
 
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.support.v7.widget.RecyclerView;
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,32 +16,29 @@ import snowroller.notes.databinding.ListItemBinding;
 /**
  * Created by Martin on 2017-02-09.
  */
-public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHolder> {
+class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHolder> {
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public ListItemBinding binder;
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        final ListItemBinding binder;
 
-        public ViewHolder(View v) {
+        ViewHolder(View v) {
             super(v);
             binder = DataBindingUtil.bind(v);
 
             final long id = this.getItemId();
-            v.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    /*
-                    NoteListAdapter.this.list.remove(ViewHolder.this.getAdapterPosition());
-                    NoteListAdapter.this.notifyItemRemoved(ViewHolder.this.getAdapterPosition());
-                    */
-                    Intent intent = new Intent(v.getContext(), NewNote.class);
-                    intent.putExtra("id", ViewHolder.this.getItemId());
-                    v.getContext().startActivity(intent);
-                }
+            v.setOnClickListener(v1 -> {
+                /*
+                NoteListAdapter.this.list.remove(ViewHolder.this.getAdapterPosition());
+                NoteListAdapter.this.notifyItemRemoved(ViewHolder.this.getAdapterPosition());
+                */
+                Intent intent = new Intent(v1.getContext(), NewNote.class);
+                intent.putExtra("id", ViewHolder.this.getItemId());
+                v1.getContext().startActivity(intent);
             });
         }
     }
 
-    private List<Note> list;
+    private final List<Note> list;
 
     public NoteListAdapter(List<Note> list) {
         this.list = list;

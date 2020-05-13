@@ -4,15 +4,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.database.Cursor;
-import android.databinding.BindingAdapter;
+import androidx.databinding.BindingAdapter;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.CursorLoader;
+import androidx.loader.content.Loader;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ import snowroller.notes.models.provider.NotesContentProvider;
 
 public class NotesListViewModel implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    private Context context;
+    private final Context context;
     private CursorRecyclerAdapter adapter;
 
     public NotesListViewModel(Context context)
@@ -65,8 +65,11 @@ public class NotesListViewModel implements LoaderManager.LoaderCallbacks<Cursor>
         SimpleCursorRecyclerAdapter adapter = new SimpleCursorRecyclerAdapter();
         view.setAdapter(adapter);
         viewmodel.setAdapter(adapter);
-        getActivity(view).getSupportLoaderManager()
-                .initLoader(1, null, viewmodel);
+
+        LoaderManager.getInstance(getActivity(view)).initLoader(1, null, viewmodel);
+
+//        getActivity(view).getSupportLoaderManager()
+//                .initLoader(1, null, viewmodel);
     }
 
     @BindingAdapter("app:animduration")
@@ -77,14 +80,14 @@ public class NotesListViewModel implements LoaderManager.LoaderCallbacks<Cursor>
         view.setItemAnimator(itemAnimator);
     }
 
-    public void setAdapter(CursorRecyclerAdapter adapter) {
+    private void setAdapter(CursorRecyclerAdapter adapter) {
         this.adapter = adapter;
     }
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         String SELECTION = "";
-        List<String> selectionArgs = new ArrayList<String>();
+        List<String> selectionArgs = new ArrayList<>();
 
         if (args != null && args.containsKey("query")) {
             SELECTION += " title LIKE ?";
@@ -113,7 +116,8 @@ public class NotesListViewModel implements LoaderManager.LoaderCallbacks<Cursor>
         if( !s.isEmpty())
             bundle.putString("query", s);
 
-        getActivity(context).getSupportLoaderManager().restartLoader(1, bundle, this);
+        LoaderManager.getInstance(getActivity(context)).initLoader(1, bundle, this);
+        //getActivity(context).getSupportLoaderManager().restartLoader(1, bundle, this);
     }
 }
 

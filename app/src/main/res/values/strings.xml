@@ -8,5 +8,4 @@
     <string name="title_activity_notes_list">Notes</string>
     <string name="options_menu_delete">Delete</string>
     <string name="search_title">Filter</string>
-    <string name="search_hint">search notes</string>
 </resources>

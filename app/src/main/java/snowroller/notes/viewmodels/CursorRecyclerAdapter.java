@@ -49,22 +49,22 @@ package snowroller.notes.viewmodels;
 
 import android.database.Cursor;
 
-import android.support.annotation.UiThread;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.UiThread;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 
-public abstract class CursorRecyclerAdapter<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
+abstract class CursorRecyclerAdapter<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
 
-    protected boolean mDataValid;
-    protected Cursor mCursor;
-    protected int mRowIDColumn;
+    private boolean mDataValid;
+    private Cursor mCursor;
+    private int mRowIDColumn;
 
-    public CursorRecyclerAdapter(Cursor c) {
+    CursorRecyclerAdapter(Cursor c) {
         init(c);
     }
 
-    void init(Cursor c) {
+    private void init(Cursor c) {
         boolean cursorPresent = c != null;
         mCursor = c;
         mDataValid = cursorPresent;
@@ -83,7 +83,7 @@ public abstract class CursorRecyclerAdapter<VH extends RecyclerView.ViewHolder> 
         onBindViewHolder(holder, mCursor);
     }
 
-    public abstract void onBindViewHolder(VH holder, Cursor cursor);
+    protected abstract void onBindViewHolder(VH holder, Cursor cursor);
 
     public Cursor getCursor() {
         return mCursor;

@@ -5,7 +5,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.util.Log;
@@ -21,7 +20,7 @@ public class NotesRepo extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "NotesDb";
     private static final int VERSION = 2;
 
-    private ContentResolver myCR;
+    private final ContentResolver myCR;
     public NotesRepo(Context context)
     {
         super(context,DATABASE_NAME,null,VERSION);
@@ -56,7 +55,7 @@ public class NotesRepo extends SQLiteOpenHelper {
                 //Remove old table
                 db.execSQL("DROP TABLE tmp_notes;");
                 db.setTransactionSuccessful();
-            }catch (SQLiteException e){}
+            }
             finally {
                 db.endTransaction();
             }

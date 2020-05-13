@@ -7,7 +7,6 @@
     <string name="body_text_view">Text</string>
     <string name="alert_exit_no_save">Du har osparade ändringar. Avsluta ändå?</string>
     <string name="options_menu_delete">Ta bort</string>
-    <string name="search_hint">sök anteckningar</string>
     <string name="search_title">Filtrera</string>
     <string name="title_activity_notes_list">Anteckningar</string>
 </resources>

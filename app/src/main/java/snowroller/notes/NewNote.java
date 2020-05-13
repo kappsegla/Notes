@@ -1,11 +1,11 @@
 package snowroller.notes;
 
-import android.content.DialogInterface;
-import android.databinding.DataBindingUtil;
+import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -36,9 +36,10 @@ public class NewNote extends AppCompatActivity {
                 //Edit note
                 viewmodel.setId(extras.getLong("id"));
             }
-        } else {
-            //Just restart of activity
         }
+//        else {
+//            //Just restart of activity
+//        }
 
         //if( viewmodel.isEditmode())
         //    this.setTitle(R.string.title_activity_edit_note);
@@ -52,7 +53,7 @@ public class NewNote extends AppCompatActivity {
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         viewmodel.saveInstanceState(outState);
     }
@@ -64,11 +65,7 @@ public class NewNote extends AppCompatActivity {
                     .setMessage(R.string.alert_exit_no_save)
                     .setCancelable(false)
                     .setPositiveButton(android.R.string.yes,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                   NewNote.this.finish();
-                                }
-                            })
+                            (dialog, which) -> NewNote.this.finish())
                     .setNegativeButton(android.R.string.no, null)
                     .show();
         }

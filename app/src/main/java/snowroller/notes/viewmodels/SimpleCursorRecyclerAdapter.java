@@ -1,46 +1,36 @@
 package snowroller.notes.viewmodels;
 
 import android.content.Intent;
-import android.database.ContentObserver;
 import android.database.Cursor;
-import android.databinding.DataBindingUtil;
-import android.os.Handler;
-import android.os.Looper;
-import android.support.v7.widget.RecyclerView;
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
-import javax.net.ssl.HandshakeCompletedEvent;
 
 import snowroller.notes.NewNote;
 import snowroller.notes.databinding.ListItemBinding;
 import snowroller.notes.models.Note;
-import snowroller.notes.models.NotesRepo;
 
 public class SimpleCursorRecyclerAdapter extends CursorRecyclerAdapter<SimpleCursorRecyclerAdapter.SimpleViewHolder> {
 
-    public class SimpleViewHolder extends RecyclerView.ViewHolder
+    static class SimpleViewHolder extends RecyclerView.ViewHolder
     {
-        public ListItemBinding binder;
+        final ListItemBinding binder;
 
-        public SimpleViewHolder(View v) {
+        SimpleViewHolder(View v) {
             super(v);
             binder = DataBindingUtil.bind(v);
 
             final long id = this.getItemId();
-            v.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    /*
-                    NoteListAdapter.this.list.remove(ViewHolder.this.getAdapterPosition());
-                    NoteListAdapter.this.notifyItemRemoved(ViewHolder.this.getAdapterPosition());
-                    */
-                    Intent intent = new Intent(v.getContext(), NewNote.class);
-                    intent.putExtra("id", SimpleViewHolder.this.getItemId());
-                    v.getContext().startActivity(intent);
-                }
+            v.setOnClickListener(v1 -> {
+                /*
+                NoteListAdapter.this.list.remove(ViewHolder.this.getAdapterPosition());
+                NoteListAdapter.this.notifyItemRemoved(ViewHolder.this.getAdapterPosition());
+                */
+                Intent intent = new Intent(v1.getContext(), NewNote.class);
+                intent.putExtra("id", SimpleViewHolder.this.getItemId());
+                v1.getContext().startActivity(intent);
             });
         }
     }

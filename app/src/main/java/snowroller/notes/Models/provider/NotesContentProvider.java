@@ -8,7 +8,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 
 import snowroller.notes.models.NotesRepo;
@@ -76,18 +76,16 @@ public class NotesContentProvider extends ContentProvider {
         int uriType = sUriMatcher.match(uri);
         SQLiteDatabase sqLiteDatabase = notesrepo.getWritableDatabase();
 
-        switch (uriType) {
-            case 1:
-                long rowId = sqLiteDatabase.insert("notes", null, values);
-                if(rowId > 0) {
-                    Uri _uri = ContentUris.withAppendedId(CONTENT_URI, rowId);
+        if (uriType == 1) {
+            long rowId = sqLiteDatabase.insert("notes", null, values);
+            if (rowId > 0) {
+                Uri _uri = ContentUris.withAppendedId(CONTENT_URI, rowId);
 
-                    getContext().getContentResolver().notifyChange(_uri, null);
-                    return _uri;
-                }
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown URI: " + uri);
+                getContext().getContentResolver().notifyChange(_uri, null);
+                return _uri;
+            }
+        } else {
+            throw new IllegalArgumentException("Unknown URI: " + uri);
         }
 
         return null;
@@ -97,7 +95,7 @@ public class NotesContentProvider extends ContentProvider {
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         int uriType = sUriMatcher.match(uri);
         SQLiteDatabase sqlDB = notesrepo.getWritableDatabase();
-        int rowsDeleted = 0;
+        int rowsDeleted;
 
         switch (uriType) {
             case 1:
@@ -123,7 +121,7 @@ public class NotesContentProvider extends ContentProvider {
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         int uriType = sUriMatcher.match(uri);
         SQLiteDatabase sqlDB = notesrepo.getWritableDatabase();
-        int rowsUpdated = 0;
+        int rowsUpdated;
 
         switch (uriType) {
             case 1:

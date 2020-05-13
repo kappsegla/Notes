@@ -1,14 +1,13 @@
 package snowroller.notes.viewmodels;
 
 import android.content.Context;
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
+import com.google.android.material.snackbar.Snackbar;
 import android.view.View;
 
-import com.android.databinding.library.baseAdapters.BR;
-
+import snowroller.notes.BR;
 import snowroller.notes.R;
 import snowroller.notes.models.Note;
 import snowroller.notes.models.NotesRepo;
@@ -26,9 +25,9 @@ public class NoteViewModel extends BaseObservable {
 
     private boolean changed;
     private boolean editmode;
-    private NotesRepo repo;
+    private final NotesRepo repo;
 
-    private Context context;
+    private final Context context;
 
     public NoteViewModel(Context context, Bundle savedInstanceState, NotesRepo repo) {
         changed = false;
@@ -72,7 +71,7 @@ public class NoteViewModel extends BaseObservable {
             return context.getString(R.string.title_activity_new_note);
     }
 
-    public boolean isEditmode() {
+    private boolean isEditmode() {
         return editmode;
     }
 

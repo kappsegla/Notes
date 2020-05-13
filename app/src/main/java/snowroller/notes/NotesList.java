@@ -1,19 +1,17 @@
 package snowroller.notes;
 
-import android.databinding.DataBindingUtil;
+import androidx.databinding.DataBindingUtil;
+
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.View;
 
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
+//import com.google.firebase.firestore.FirebaseFirestore;
 
 import snowroller.notes.databinding.ActivityNotesListBinding;
 import snowroller.notes.viewmodels.NotesListViewModel;
@@ -22,7 +20,7 @@ public class NotesList extends AppCompatActivity {
 
     private NotesListViewModel viewmodel;
 
-    private FirebaseFirestore db;
+    //private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,23 +32,20 @@ public class NotesList extends AppCompatActivity {
         viewmodel = new NotesListViewModel(this);
         binding.setViewmodel(viewmodel);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                testFirebaseAdd();
-                /*
-                Intent intent = new Intent(NotesList.this, NewNote.class);
-                NotesList.this.startActivity(intent);
-                */
-            }
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(view -> {
+          //  testFirebaseAdd();
+
+            Intent intent = new Intent(NotesList.this, NewNote.class);
+            NotesList.this.startActivity(intent);
+
         });
 
         //Firestore
-        db = FirebaseFirestore.getInstance();
+      //  db = FirebaseFirestore.getInstance();
 
     }
     @Override
@@ -79,23 +74,23 @@ public class NotesList extends AppCompatActivity {
         return true;
     }
 
-    public void testFirebaseAdd()
-    {
-        // Create a new user with a first and last name
-        Map<String, Object> user = new HashMap<>();
-        Map<String, Object> name = new HashMap<>();
-        user.put("name", name);
-        name.put("first", "Ada");
-        name.put("last", "Lovelace");
-        user.put("born", 1815);
-
-        // Add a new document with a specified name
-        db.collection("users").document("User1")
-                .set(user)
-                .addOnSuccessListener( aVoid -> {});
-        //Add a new document with a generated Id
-        db.collection("users").add(user).addOnSuccessListener(documentReference -> {
-
-        });
-    }
+//    public void testFirebaseAdd()
+//    {
+//        // Create a new user with a first and last name
+//        Map<String, Object> user = new HashMap<>();
+//        Map<String, Object> name = new HashMap<>();
+//        user.put("name", name);
+//        name.put("first", "Ada");
+//        name.put("last", "Lovelace");
+//        user.put("born", 1815);
+//
+//        // Add a new document with a specified name
+//        db.collection("users").document("User1")
+//                .set(user)
+//                .addOnSuccessListener( aVoid -> {});
+//        //Add a new document with a generated Id
+//        db.collection("users").add(user).addOnSuccessListener(documentReference -> {
+//
+//        });
+//    }
  }

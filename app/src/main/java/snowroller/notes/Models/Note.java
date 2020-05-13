@@ -34,7 +34,7 @@ public class Note {
     public boolean equals(Object obj) {
         boolean isEqual= false;
 
-        if (obj != null && obj instanceof Note)
+        if (obj instanceof Note)
         {
             isEqual = (this._id == ((Note) obj)._id);
         }
