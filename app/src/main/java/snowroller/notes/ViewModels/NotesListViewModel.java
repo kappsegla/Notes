@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.database.Cursor;
+
+import androidx.annotation.NonNull;
 import androidx.databinding.BindingAdapter;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
@@ -17,6 +19,7 @@ import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import snowroller.notes.models.provider.NotesContentProvider;
 
@@ -66,7 +69,7 @@ public class NotesListViewModel implements LoaderManager.LoaderCallbacks<Cursor>
         view.setAdapter(adapter);
         viewmodel.setAdapter(adapter);
 
-        LoaderManager.getInstance(getActivity(view)).initLoader(1, null, viewmodel);
+        LoaderManager.getInstance(Objects.requireNonNull(getActivity(view))).initLoader(1, null, viewmodel);
 
 //        getActivity(view).getSupportLoaderManager()
 //                .initLoader(1, null, viewmodel);
@@ -84,6 +87,7 @@ public class NotesListViewModel implements LoaderManager.LoaderCallbacks<Cursor>
         this.adapter = adapter;
     }
 
+    @NonNull
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         String SELECTION = "";
@@ -102,12 +106,12 @@ public class NotesListViewModel implements LoaderManager.LoaderCallbacks<Cursor>
     }
 
     @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+    public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
         adapter.swapCursor(data);
     }
 
     @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
+    public void onLoaderReset(@NonNull Loader<Cursor> loader) {
         adapter.swapCursor(null);
     }
 
@@ -116,7 +120,7 @@ public class NotesListViewModel implements LoaderManager.LoaderCallbacks<Cursor>
         if( !s.isEmpty())
             bundle.putString("query", s);
 
-        LoaderManager.getInstance(getActivity(context)).initLoader(1, bundle, this);
+        LoaderManager.getInstance(Objects.requireNonNull(getActivity(context))).initLoader(1, bundle, this);
         //getActivity(context).getSupportLoaderManager().restartLoader(1, bundle, this);
     }
 }

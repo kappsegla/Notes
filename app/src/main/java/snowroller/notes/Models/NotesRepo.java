@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.util.Log;
 
+import java.util.Objects;
+
 import snowroller.notes.models.provider.NotesContentProvider;
 
 /**
@@ -72,7 +74,7 @@ public class NotesRepo extends SQLiteOpenHelper {
         if( note._id == 0) {
             //New Note, Insert into DataBase
             Uri response = myCR.insert(NotesContentProvider.CONTENT_URI,values);
-            note._id = Long.parseLong(response.getLastPathSegment());
+            note._id = Long.parseLong(Objects.requireNonNull(Objects.requireNonNull(response).getLastPathSegment()));
         }
         return note._id;
     }

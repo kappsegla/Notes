@@ -49,6 +49,7 @@ package snowroller.notes.viewmodels;
 
 import android.database.Cursor;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.UiThread;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -73,7 +74,7 @@ abstract class CursorRecyclerAdapter<VH extends RecyclerView.ViewHolder> extends
     }
 
     @Override
-    public final void onBindViewHolder (VH holder, int position) {
+    public final void onBindViewHolder (@NonNull VH holder, int position) {
         if (!mDataValid) {
             throw new IllegalStateException("this should only be called when the cursor is valid");
         }

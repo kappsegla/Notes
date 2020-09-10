@@ -1,6 +1,8 @@
 package snowroller.notes.viewmodels;
 
 import android.content.Intent;
+
+import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -45,8 +47,9 @@ class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHolder> {
         setHasStableIds(true);
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v = ListItemBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false).getRoot();
         return new ViewHolder(v);

@@ -7,6 +7,6 @@
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorAccent">@color/primaryColor</item>
         <item name="android:navigationBarColor">@color/primaryLightColor</item>
-        <item name="android:windowBackground">@color/lightgrey</item>
+        <item name="android:windowBackground">@color/lightgray</item>
     </style>
 </resources>

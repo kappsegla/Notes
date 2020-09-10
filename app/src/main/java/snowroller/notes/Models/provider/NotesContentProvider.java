@@ -8,8 +8,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.text.TextUtils;
+
+import java.util.Objects;
 
 import snowroller.notes.models.NotesRepo;
 
@@ -40,7 +44,7 @@ public class NotesContentProvider extends ContentProvider {
 
     @Nullable
     @Override
-    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+    public Cursor query(@NonNull Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
         queryBuilder.setTables("notes");
 
@@ -59,20 +63,20 @@ public class NotesContentProvider extends ContentProvider {
                 projection,selection,selectionArgs,null,null,
                 sortOrder);
         //Set the Uri that clients can track for updates
-        cursor.setNotificationUri(getContext().getContentResolver(),uri);
+        cursor.setNotificationUri(Objects.requireNonNull(getContext()).getContentResolver(),uri);
         return cursor;
     }
 
     @Nullable
     @Override
-    public String getType(Uri uri) {
+    public String getType(@NonNull Uri uri) {
         //TODO: Implement gettype on ContentProvider
         return null;
     }
 
     @Nullable
     @Override
-    public Uri insert(Uri uri, ContentValues values) {
+    public Uri insert(@NonNull Uri uri, ContentValues values) {
         int uriType = sUriMatcher.match(uri);
         SQLiteDatabase sqLiteDatabase = notesrepo.getWritableDatabase();
 
@@ -81,7 +85,7 @@ public class NotesContentProvider extends ContentProvider {
             if (rowId > 0) {
                 Uri _uri = ContentUris.withAppendedId(CONTENT_URI, rowId);
 
-                getContext().getContentResolver().notifyChange(_uri, null);
+                Objects.requireNonNull(getContext()).getContentResolver().notifyChange(_uri, null);
                 return _uri;
             }
         } else {
@@ -92,7 +96,7 @@ public class NotesContentProvider extends ContentProvider {
     }
 
     @Override
-    public int delete(Uri uri, String selection, String[] selectionArgs) {
+    public int delete(@NonNull Uri uri, String selection, String[] selectionArgs) {
         int uriType = sUriMatcher.match(uri);
         SQLiteDatabase sqlDB = notesrepo.getWritableDatabase();
         int rowsDeleted;
@@ -113,12 +117,12 @@ public class NotesContentProvider extends ContentProvider {
             default:
                 throw new IllegalArgumentException("Unknown URI: " + uri);
         }
-        getContext().getContentResolver().notifyChange(uri, null);
+        Objects.requireNonNull(getContext()).getContentResolver().notifyChange(uri, null);
         return rowsDeleted;
     }
 
     @Override
-    public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
+    public int update(@NonNull Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         int uriType = sUriMatcher.match(uri);
         SQLiteDatabase sqlDB = notesrepo.getWritableDatabase();
         int rowsUpdated;
@@ -139,7 +143,7 @@ public class NotesContentProvider extends ContentProvider {
             default:
                 throw new IllegalArgumentException("Unknown URI: " + uri);
         }
-        getContext().getContentResolver().notifyChange(uri, null);
+        Objects.requireNonNull(getContext()).getContentResolver().notifyChange(uri, null);
         return rowsUpdated;
     }
 }

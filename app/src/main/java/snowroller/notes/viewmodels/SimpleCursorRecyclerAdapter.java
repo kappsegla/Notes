@@ -2,11 +2,15 @@ package snowroller.notes.viewmodels;
 
 import android.content.Intent;
 import android.database.Cursor;
+
+import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.Objects;
 
 import snowroller.notes.NewNote;
 import snowroller.notes.databinding.ListItemBinding;
@@ -40,8 +44,9 @@ public class SimpleCursorRecyclerAdapter extends CursorRecyclerAdapter<SimpleCur
         super(null);
     }
 
+    @NonNull
     @Override
-    public SimpleViewHolder onCreateViewHolder (ViewGroup parent, int viewType) {
+    public SimpleViewHolder onCreateViewHolder (@NonNull ViewGroup parent, int viewType) {
         View v = ListItemBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false).getRoot();
         return new SimpleViewHolder(v);
     }
@@ -57,7 +62,7 @@ public class SimpleCursorRecyclerAdapter extends CursorRecyclerAdapter<SimpleCur
         n._id = cursor.getLong(column_id);
         n.title = cursor.getString(column_title);
         n.body = cursor.getString(column_body);
-        holder.binder.setViewmodel(n);
+        Objects.requireNonNull(holder.binder).setViewmodel(n);
         holder.binder.executePendingBindings();
     }
 

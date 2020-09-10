@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import java.util.Objects;
+
 import snowroller.notes.databinding.NewNoteBinding;
 import snowroller.notes.models.NotesRepo;
 import snowroller.notes.viewmodels.NoteViewModel;
@@ -48,7 +50,7 @@ public class NewNote extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_light);
+        Objects.requireNonNull(getSupportActionBar()).setHomeAsUpIndicator(R.drawable.ic_back_arrow_light);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
