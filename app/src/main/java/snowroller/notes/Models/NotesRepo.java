@@ -102,7 +102,7 @@ public class NotesRepo extends SQLiteOpenHelper {
                         + "snowroller.notes.models.provider.NotesContentProvider"
                         + "/" + "notes" + "/" + id),
                         null, null);
-            return true;
+            return rowsDeleted > 0;
     }
 
     public Note getNote(long id)

@@ -31,7 +31,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:rippleColor="@color/white"
             app:srcCompat="@drawable/ic_fab_save"
-            app:useCompatPadding="true" />
+            app:useCompatPadding="true"
+            android:contentDescription="@string/plus_sign_description" />
 
         <TextView
             android:id="@+id/textView"

@@ -47,7 +47,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:rippleColor="@color/white"
             app:srcCompat="@drawable/ic_fab_add"
-            app:useCompatPadding="true" />
+            app:useCompatPadding="true"
+            android:contentDescription="@string/plus_sign_description" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

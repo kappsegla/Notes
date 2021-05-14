@@ -86,13 +86,11 @@ public class NewNote extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-        // Respond to the action bar's Up/Home button
-        case android.R.id.home:
+        int itemId = item.getItemId();// Respond to the action bar's Up/Home button
+        if (itemId == android.R.id.home) {
             //return true;
-            break;
-        case R.id.menu_delete:
-            if( viewmodel.delete() )
+        } else if (itemId == R.id.menu_delete) {
+            if (viewmodel.delete())
                 finish();
             return true;
         }
